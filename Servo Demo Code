@@ -1,0 +1,69 @@
+// Austin Zimmers
+//This code is to demo all the arduino servo functions. It shows how they can be implemented and used in a program
+
+#include <Servo.h>
+
+Servo myservo; //make servo name (uses arduino servo library)
+
+void setup() {
+
+  Serial.begin(9600);
+  
+  myservo.attach(9); 
+  //declare which pin is the control wire to the servo
+}
+
+void loop() {
+  //first, swivel between middle position, fully CCW, fully CW using Pulse width modulation
+for (int j=0; j<=3; j++){
+myservo.writeMicroseconds(1500);//middle
+delay(2000);
+myservo.writeMicroseconds(2000);//fully CCW
+delay(2000);
+myservo.writeMicroseconds(1000);//fully CW (assuming 180deg servo)
+delay(2000);
+                        }
+                        
+
+myservo.write(90); //reset servo using angle input.
+delay(4000);
+
+//Get feedback from servo and print the current position
+int x = myservo.read();
+Serial.println("angle: ");
+Serial.println(x);
+delay(2000);
+
+myservo.writeMicroseconds(1350); //reset servo using angle input.
+delay(4000);
+
+//Get feedback from servo and print the current position (This time reading angle from picroseconds pulse!
+int y = myservo.read();
+Serial.println("angle: ");
+Serial.println(y);
+delay(2000);
+
+//////////////////////////////////////////////////////////////
+
+//Check if servo is attached to a pin
+Serial.println("Is servo attatched to a pin: ");
+Serial.println(myservo.attached()); // 0 = false, 1 = true
+delay(2500);
+
+//DETACH servo then check to see if it's attached again
+myservo.detach();
+Serial.println("Is servo attatched to a pin: ");
+Serial.println(myservo.attached()); // 0 = false, 1 = true
+delay(2500);
+
+//reattach servo
+myservo.attach(9);
+Serial.println("Is servo attatched to a pin: ");
+Serial.println(myservo.attached()); // 0 = false, 1 = true
+delay(2500);
+
+delay(9500);
+
+
+
+} 
