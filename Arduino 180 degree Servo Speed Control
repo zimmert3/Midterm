@@ -25,7 +25,7 @@ void loop() {
  for (int pos = 5; pos <= 170; pos += 1) { // goes from 5 degrees to 170 
     // in steps of 1 degree               // NOTE: seems to run smoother when not going all the way to 1 / 180 degree limits. 
     myservo.write(pos);              // tell servo to go to position in variable 'pos'
-    delay(25);                       // waits 33 miliseconds (should take 6 seconds to finish
+    delay(25);                       // waits 25 miliseconds (should take 6 seconds to finish
   }
   delay(1000);
   for (int p = 170; p >= 5; p -= 1) { // goes from 170 degrees to 5 degrees
@@ -38,23 +38,23 @@ void loop() {
 for (int pos = 5; pos <= 170; pos += 1) { // goes from 0 degrees to 180 
     // in steps of 1 degree
     myservo.write(pos);              // tell servo to go to position in variable 'pos'
-    delay(10);                       // waits 33 miliseconds (should take 6 seconds to finish
+    delay(10);                       // waits 10 miliseconds (should take 6 seconds to finish
   }
   delay(1000);
-  for (int p = 170; p >= 5; p -= 1) { // goes from 180 degrees to 0 degrees
+  for (int p = 170; p >= 5; p -= 1) { // goes from 170 degrees to 5 degrees
     myservo.write(p);              
     delay(10);   
     }  
     delay(3000); 
 //////////////////////////////////////////////
 
-    for (int pos = 5; pos <= 170; pos += 1) { // goes from 0 degrees to 180 
+    for (int pos = 5; pos <= 170; pos += 1) { // goes from 5 degrees to 170 
     // in steps of 1 degree
     myservo.write(pos);              // tell servo to go to position in variable 'pos'
-    delay(3);                       // waits 33 miliseconds (should take 6 seconds to finish
+    delay(3);                       // waits 3 miliseconds (should take 6 seconds to finish
   }
   delay(1000);
-  for (int p = 170; p >= 5; p -= 1) { // goes from 180 degrees to 0 degrees
+  for (int p = 170; p >= 5; p -= 1) { // goes from 170 degrees to 5 degrees
     myservo.write(p);              
     delay(3);   
     }  
