@@ -1,0 +1,24 @@
+/*
+Austin Zimemrs
+This cide uses a 10k ohm potentiomenter to control servo position.
+Based on:
+ http://www.arduino.cc/en/Tutorial/Knob
+*/
+
+#include <Servo.h>
+
+Servo drservo;  // create servo object to control a servo
+
+int po = 0;  // analog pin used to connect the potentiometer
+int val;    // variable to read the value from the analog pin
+
+void setup() {
+  drservo.attach(9);  // attaches the servo to pin 9 
+}
+
+void loop() {
+  val = analogRead(po);            // reads the value of the potentiometer 
+  val = map(val, 0, 1023, 0, 180);     // scale it to use it with the servo (value between 0 and 180)
+  drservo.write(val);                  // sets the servo position according to the scaled value
+  delay(20);                           
+}
